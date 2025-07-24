@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Canvas Drawing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="layout">
+    <!-- 🎨 왼쪽: 색상 관련 컨트롤 -->
+    <div id="left-panel">
+      <div class="controls">
+        <!-- 🎨 사용자 지정 색상 -->
+        <label for="color" class="color-label">🎨 Custom</label>
+        <input type="color" id="color" value="#1abc9c" />
+
+        <!-- 🎯 선택된 색상 표시 -->
+        <div class="color-info">
+          <span>🟢 Selected Color:</span>
+          <span id="selected-color-code">#1abc9c</span>
+        </div>
+
+        <!-- 🕓 최근 색상 -->
+        <div id="recent-colors">
+          <h4>🕓 Recent Colors:</h4>
+          <div id="recent-color-list"></div>
+        </div>
+
+        <!-- 🎨 컬러 팔레트 -->
+        <div class="palette">
+          <div class="color-option selected" style="background-color: #1abc9c" data-color="#1abc9c">
+            <input type="color" class="color-picker-hidden" value="#1abc9c" />
+          </div>
+          <div class="color-option" style="background-color: #3498db" data-color="#3498db">
+            <input type="color" class="color-picker-hidden" value="#3498db" />
+          </div>
+          <div class="color-option" style="background-color: #34495e" data-color="#34495e">
+            <input type="color" class="color-picker-hidden" value="#34495e" />
+          </div>
+          <div class="color-option" style="background-color: #27ae60" data-color="#27ae60">
+            <input type="color" class="color-picker-hidden" value="#27ae60" />
+          </div>
+          <div class="color-option" style="background-color: #8e44ad" data-color="#8e44ad">
+            <input type="color" class="color-picker-hidden" value="#8e44ad" />
+          </div>
+          <div class="color-option" style="background-color: #f1c40f" data-color="#f1c40f">
+            <input type="color" class="color-picker-hidden" value="#f1c40f" />
+          </div>
+          <div class="color-option" style="background-color: #e74c3c" data-color="#e74c3c">
+            <input type="color" class="color-picker-hidden" value="#e74c3c" />
+          </div>
+          <div class="color-option" style="background-color: #e67e22" data-color="#e67e22">
+            <input type="color" class="color-picker-hidden" value="#e67e22" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🖼 캔버스 -->
+    <div id="canvas-panel">
+      <canvas id="canvas" width="800" height="800"></canvas>
+      <div class="canvas-controls">
+        <div class="line-width-control">
+          <span class="control-icon">✏️</span>
+          <input
+            id="line-width"
+            type="range"
+            min="1"
+            max="20"
+            value="5"
+            step="0.5"
+          />
+          <span id="line-width-display">5px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🛠 기능 버튼 -->
+    <div id="right-panel">
+      <div class="tool-section">
+        <h4>🎨 Drawing Tools</h4>
+        <button id="mode-btn">🩸 Fill</button>
+        <button id="destroy-btn">💣 Clear All</button>
+        <button id="eraser-btn">🧼 Erase</button>
+        <button id="undo-btn">↶ Undo</button>
+        <button id="redo-btn">↷ Redo</button>
+      </div>
+
+      <div class="tool-section">
+        <h4>🌠 Media</h4>
+        <!-- 숨겨진 파일 input -->
+        <input type="file" id="image-input" accept="image/*" style="display: none;" />
+        <!-- 사용자에게 보여질 버튼 -->
+        <button id="add-photo-btn">📷 Add Photo</button>
+        <button id="save">💾 Save Image</button>
+      </div>
+
+      <div class="tool-section">
+        <h4>📝 Text Tools</h4>
+        <input type="text" id="text" placeholder="Add text here :)" />
+        <div class="input-group">
+          <label for="font-size">📏 Size:</label>
+          <input type="number" id="font-size" value="24" min="8" max="100" />
+        </div>
+        <div class="input-group">
+          <label for="font-family">🔤 Font:</label>
+          <select id="font-family">
+            <option value="Arial">Arial</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Impact">Impact</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Palatino">Palatino</option>
+          </select>
+        </div>
+        <div class="text-style-controls">
+          <button id="bold-btn" class="style-btn">B</button>
+          <button id="italic-btn" class="style-btn">I</button>
+          <button id="underline-btn" class="style-btn">U</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

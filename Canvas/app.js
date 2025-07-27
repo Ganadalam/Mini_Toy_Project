@@ -1,4 +1,3 @@
-//undo, redo (X) 
 const saveBtn = document.getElementById("save");
 const textInput = document.getElementById("text");
 const imageInput = document.getElementById("image-input");
@@ -109,10 +108,11 @@ function cancelPainting() {
 function onMove(event) {
   const { x, y } = getScaledCoordinates(event);
   if (isPainting) {
-    ctx.lineTo(x, y);
+    ctx.lineTo(x - 0.5, y - 0.5); // 🎯 미세 위치 보정만
     ctx.stroke();
     return;
   }
+  ctx.beginPath();
   ctx.moveTo(x, y);
 }
 

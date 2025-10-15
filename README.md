@@ -50,3 +50,47 @@ API:
 사용: 좌측 및 우측 패널의 컨트롤러를 사용하여 드로잉을 시작하고 기능을 활용합니다.
 
 
+2)  Project Nwitter - 트위터 클론 코딩
+    
+🚀 React & Firebase를 활용한 실시간 소셜 미디어 서비스 구현
+
+🛠️ 목표: React 컴포넌트 구조화 및 $\text{Firebase}$를 이용한 백엔드 없이 풀스택 기능 구현
+
+💻 기술 스택 (Tech Stack)
+
+Frontend:
+- React.js:	SPA (Single Page Application) 구현 및 컴포넌트 기반 UI 개발
+- React Hooks: 상태 관리, 부수 효과 처리 등 $\text{React}$의 핵심 기능 활용
+- React Router: 페이지 이동 및 보호된 페이지 (Protected Pages) 구현
+
+Backend (BaaS):
+- Firebase	백엔드 서버 구축 없이 인증, DB, 파일 저장소 기능 구현
+
+DB & Storage:	
+- Cloud Firestore	NoSQL 데이터베이스를 이용한 실시간 트윗 데이터 저장 및 읽기
+- Firebase Storage	사용자 프로필 이미지, 트윗에 첨부된 이미지 파일 저장 및 관리
+
+   (유료화로 수정 -> 기존: storage -> 현재: Base64 인코딩으로 저장)
+  
+인증:
+- Firebase Authentication: 이메일/비밀번호, Google, Github 등 소셜 로그인 기능 구현
+스타일링:
+-	CSS Modules / Styled-Components: (선택적으로) 컴포넌트별 스타일링 및 UI/UX 개선
+
+✨ 핵심 구현 기능 (Key Features)
+
+👤 사용자 인증:
+- 회원가입/로그인: 이메일과 비밀번호 기반 인증 시스템 구현
+- 소셜 로그인: Google,Github 등 외부 서비스 계정을 이용한 간편 로그인 구현
+- 로그인 상태 관리: 사용자의 인증 상태 변화를 실시간으로 감지하여 ProtectedPages (보호된 페이지) 구현
+
+💬 트윗 CRUD:
+- 트윗 생성 (Create): 텍스트와 $\mathbf{이미지 파일}$을 첨부하여 실시간으로 트윗을 작성
+- 트윗 읽기 (Read): $\text{Firestore}$의 $\text{onSnapshot}$을 활용하여 $\mathbf{실시간}$으로 트윗 목록을 가져와 $\text{UI}$에 반영
+- 트윗 수정 (Update): 작성자가 자신의 트윗 내용을 수정할 수 있는 기능 구현
+- 트윗 삭제 (Delete): 트윗과 연결된 $\mathbf{이미지}$도 $\text{Firebase Storage}$에서 함께 삭제 처리
+
+⚙️ 프로필 관리:
+- 프로필 페이지: 사용자의 트윗 목록과 프로필 정보를 보여주는 페이지 구현
+- 프로필 업데이트: 사용자 닉네임 및 아바타(프로필이미지) 변경 기능 구현 및 Storage 연동
+
